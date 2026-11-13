@@ -74,13 +74,6 @@ ddc check export_folder --rules examples/rules_basic.yaml --xlsx report.xlsx --j
 echo $?    # 0 = pass, 1 = failing rules, 2 = bad input or rules file
 ```
 
-![Traffic-light summary](https://raw.githubusercontent.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/main/ddc-tools/docs/check_summary.png)
-
-*Real run on the IFC Duplex sample of this repository, converted by DDC IFC to Excel 2.0
-(`examples/rules_ifc.yaml`). The picture is drawn from the cell contents of the generated XLSX
-(`docs/render_xlsx_png.py`), not a screenshot of Excel. The door fire ratings in that model hold the
-placeholder text "Fire Rating", which the rule `IFC-DOOR-FIRE-VALUE` flags.*
-
 Rules file (YAML):
 
 ```yaml
@@ -189,19 +182,19 @@ What each input gives:
 | Column | Meaning | RVT | IFC | DWG |
 |---|---|---|---|---|
 | `ID` | Row key, the same value type as the old exports | ElementId | STEP id (or Revit ElementId in a Revit IFC) | handle |
-| `ElementId` | Revit element id | ElementId | Revit_Identity.ElementId if present | - |
+| `ElementId` | Revit element id | ElementId | DDC_Identity.ElementId if present | - |
 | `GlobalId` | Global unique id | IFC GlobalId when native_graph.ifc is present | IfcRoot.GlobalId | - |
 | `Category` | Old-style category code | OST_ code from the category id (OST_Walls) | IFC class (IfcWall) or the Revit category in a Revit IFC | entity type (LINE, INSERT, ...) |
-| `Category Name` | Readable category | Revit_Identity.CategoryName | Revit category if present, else the IFC class without Ifc | entity type |
+| `Category Name` | Readable category | DDC_Identity.CategoryName | Revit category if present, else the IFC class without Ifc | entity type |
 | `IfcClass` | IFC entity class | from native_graph.ifc | IfcRoot class | - |
-| `Revit Class` | Revit element class | root object class (SWall, FamilyInstance) | Revit_Identity.Class | - |
-| `Family` | Family name | Revit_Identity.FamilyName | Revit_Identity.FamilyName, else first part of 'Family:Type:Id' names | - |
-| `Type Name` | Type name | Revit_Identity.TypeName | type object name, else Revit_Identity.TypeName, else middle part of 'Family:Type:Id' | block name for INSERT |
+| `Revit Class` | Revit element class | root object class (SWall, FamilyInstance) | DDC_Identity.Class | - |
+| `Family` | Family name | DDC_Identity.FamilyName | DDC_Identity.FamilyName, else first part of 'Family:Type:Id' names | - |
+| `Type Name` | Type name | DDC_Identity.TypeName | type object name, else DDC_Identity.TypeName, else middle part of 'Family:Type:Id' | block name for INSERT |
 | `Type` | Same as Type Name (the old exports had both columns) | Type Name | Type Name | Type Name |
 | `Family and Type` | Family: Type | Family and Type names joined | same | - |
-| `Type Id` | Type element id | root object type reference | Revit_Identity.TypeId | - |
+| `Type Id` | Type element id | root object type reference | DDC_Identity.TypeId | - |
 | `Name` | Element name | first name-like stored text | IfcRoot.Name | text of TEXT/MTEXT |
-| `Level` | Level / storey / layout | associated level name | Revit_Identity.LevelName, else the containing IfcBuildingStorey | owner block (Model_Space, Paper_Space) |
+| `Level` | Level / storey / layout | associated level name | DDC_Identity.LevelName, else the containing IfcBuildingStorey | owner block (Model_Space, Paper_Space) |
 | `Material` | Material names joined by '; ' | - | IfcRelAssociatesMaterial | - |
 | `Length` | Length | - | see Quantity rules | LINE, ARC, CIRCLE, ELLIPSE, polyline length |
 | `Width` | Width | - | see Quantity rules | - |
@@ -236,7 +229,7 @@ What changed between two issues of a model? Both sides are read with the same ad
 folders or files in any supported format.
 
 ```bash
-ddc diff Duplex_v1 Duplex_v2 --xlsx changes.xlsx --json changes.json
+ddc diff model_v1 model_v2 --xlsx changes.xlsx --json changes.json
 ddc diff R24 R24_v2 --glb diff.glb --bcf issues.bcf        # RVT outputs with native_graph.glb
 ddc diff A B --fail-on removed,modified                    # CI: exit code 1 only for these statuses
 ```
@@ -256,10 +249,6 @@ GlobalIds) are not counted as changes; a warning says how many differ.
 (Length, Width, Height, Perimeter, Area, Volume, mesh volume/area, bounding box, `Pset` quantities), `attribute`
 (category, type, name, level, material, layer) and `property` (everything else). Numbers are equal within
 `--tolerance` (relative, default 1e-6); `--ignore GLOB` skips columns.
-
-![Summary sheet](https://raw.githubusercontent.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/main/ddc-tools/docs/diff_summary.png)
-
-![Changelog sheet](https://raw.githubusercontent.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/main/ddc-tools/docs/diff_changelog.png)
 
 The XLSX has sheets `Summary`, `Changelog` (one row per change, status colours), `Elements`, `By category` and
 `Quantities` (totals per category in A and B). The JSON holds the same data plus the key diagnostics; unchanged
@@ -292,7 +281,7 @@ What changed between two issues of a model? Both sides are read with the same ad
 folders or files in any supported format.
 
 ```bash
-ddc diff Duplex_v1 Duplex_v2 --xlsx changes.xlsx --json changes.json
+ddc diff model_v1 model_v2 --xlsx changes.xlsx --json changes.json
 ddc diff R24 R24_v2 --glb diff.glb --bcf issues.bcf        # RVT outputs with native_graph.glb
 ddc diff A B --fail-on removed,modified                    # CI: exit code 1 only for these statuses
 ```
@@ -312,10 +301,6 @@ GlobalIds) are not counted as changes; a warning says how many differ.
 (Length, Width, Height, Perimeter, Area, Volume, mesh volume/area, bounding box, `Pset` quantities), `attribute`
 (category, type, name, level, material, layer) and `property` (everything else). Numbers are equal within
 `--tolerance` (relative, default 1e-6); `--ignore GLOB` skips columns.
-
-![Summary sheet](https://raw.githubusercontent.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/main/ddc-tools/docs/diff_summary.png)
-
-![Changelog sheet](https://raw.githubusercontent.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/main/ddc-tools/docs/diff_changelog.png)
 
 The XLSX has sheets `Summary`, `Changelog` (one row per change, status colours), `Elements`, `By category` and
 `Quantities` (totals per category in A and B). The JSON holds the same data plus the key diagnostics; unchanged
@@ -365,8 +350,6 @@ ddc bcf read check.bcf --xlsx bcf_summary.xlsx                              # an
 * `ddc bcf read` writes `Summary`, `Topics`, `Comments` and `Components` sheets (and `--json`). Files with a
   DOCTYPE or entity declaration are refused.
 
-![BCF topics](https://raw.githubusercontent.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/main/ddc-tools/docs/bcf_topics.png)
-
 The buildingSMART XSD files are licensed CC BY-ND 4.0, not a permissive licence, so they are not part of this
 repository; the tests download them on demand (set `DDC_BCF_XSD_DIR` to reuse a folder) and skip when `lxml` or the
 network is missing.
@@ -376,13 +359,9 @@ network is missing.
 ```bash
 ddc qto export_folder --xlsx qto.xlsx
 ddc qto model.xlsx --category "Wall*" --quantities Area,Volume --json qto.json
-# IFC to Excel output of the Duplex sample, walls, slabs and coverings only
-ddc qto Duplex.converted --category "IfcWall*" --category IfcSlab --category IfcCovering     --quantities "PSet_Revit_Dimensions.Length,PSet_Revit_Dimensions.Area,PSet_Revit_Dimensions.Volume" --xlsx qto.xlsx
+# IFC to Excel output of a sample model, walls, slabs and coverings only
+ddc qto model.converted --category "IfcWall*" --category IfcSlab --category IfcCovering     --quantities "PSet_Revit_Dimensions.Length,PSet_Revit_Dimensions.Area,PSet_Revit_Dimensions.Volume" --xlsx qto.xlsx
 ```
-
-![QTO by type](https://raw.githubusercontent.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/main/ddc-tools/docs/qto_by_type.png)
-
-*Same run, walls, slabs and coverings of the Duplex model; quantities as stored in the IFC.*
 
 Workbook sheets: `Read me`, `By Category`, `By Type`, `By Level`, `Detail` (category + type + level),
 `Warnings`. Every table has filters, a frozen header and a `SUBTOTAL` total row that follows the filter.

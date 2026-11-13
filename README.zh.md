@@ -1,3 +1,5 @@
+> **与 Autodesk 无关联。** Autodesk、AutoCAD、DWG 和 Revit 是 Autodesk, Inc. 的商标；IFC 和 buildingSMART 是 buildingSMART International Ltd. 的商标；Microsoft、Excel 和 Power BI 是 Microsoft Corporation 的商标。DataDrivenConstruction 是独立软件，与上述公司无关联，也未获其认可或认证。RVT、RFA、DWG、DXF 和 IFC 是文件格式名称，仅用于说明可读取哪些文件。参见 [TRADEMARK.md](TRADEMARK.md)。
+
 <p align="center">
   <a href="README.md">English</a> •
   <a href="README.de.md">Deutsch</a> •
@@ -37,7 +39,7 @@
 
 DDC Converters 2.0 是整个产品线 2026 年 10 月的版本：RVT Converter 2.0、RVT to IFC 2.0、
 IFC to Excel 2.0、CAD Drawing to Excel 2.0、Data Viewer 2.0 和 Excel Add-in 2.0。
-当前的 RVT Converter 和 RVT to IFC 构建版本为 [2.0.2](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases/tag/v2.0.2)。
+当前的 RVT Converter 和 RVT to IFC 构建版本为 [latest](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases/latest)。
 
 - **每类格式一个工具。** `.rvt` / `.rfa` 转为 GLB、glTF、OBJ、IFC4 以及 JSONL / CSV / SQLite 表格；
   `.ifc` / `.ifczip` 转为 Excel、JSONL 和 SQLite；`.dwg` 转为 Excel、CSV、JSONL、DXF 和 SVG。
@@ -89,21 +91,21 @@ RVT Converter 写出的每个几何节点都保留原生元素 ID，因此表格
 ## 截图
 
 以下所有截图均来自当前版本软件包的真实运行。它们使用开放的
-Revit 示例模型（MIT 许可证）、查看器自带的合成示例建筑，以及 [`Sample_Projects/`](Sample_Projects/) 中的开放 IFC 示例。
+Revit 示例模型（MIT 许可证）、以及查看器自带的合成示例建筑。
 
 | | |
 |---|---|
-| ![RVT Converter 2.0.2：两个 Revit 模型转换完成](docs/images/rvt-converter-done.png) | ![RVT to IFC 2.0.2：IFC 选项面板](docs/images/rvt-to-ifc-options.png) |
+| ![RVT Converter 2.0.12：两个 Revit 模型转换完成](docs/images/2.0.12/rvt-converter-done.png) | ![RVT to IFC 2.0.12：IFC 选项面板](docs/images/2.0.12/rvt-to-ifc-options.png) |
 | **DDC RVT Converter** — 两个 Revit 模型已转换；结果文件夹按文件列出。 | **DDC RVT to IFC** — 长度单位、坐标原点及其他 IFC 设置位于*更多选项*中。 |
-| ![Data Viewer：3D 选择与表格行联动](docs/images/data-viewer-3d-selection.png) | ![Data Viewer 中按 IFC 类分组的 IFC to Excel 输出](docs/images/ifc-to-excel-table.png) |
-| **DDC Data Viewer** — 对*结构柱*的筛选会在 3D 中高亮显示关联元素；汇总面板对面积、体积和长度求和。 | **DDC IFC to Excel** — 开放 Duplex IFC 示例的 `drawing.xlsx`，按 IFC 类分组（333 个对象，23 个类）。 |
+| ![Data Viewer：3D 选择与表格行联动](docs/images/data-viewer-3d-selection.png) | ![Data Viewer：按类别和楼层分组的示例建筑](docs/images/data-viewer-3d-grouped.png) |
+| **DDC Data Viewer** — 对*结构柱*的筛选会在 3D 中高亮显示关联元素；汇总面板对面积、体积和长度求和。 | **DDC Data Viewer** — 按类别和楼层分组的合成示例建筑，带列合计和联动的 3D 视图。 |
 | ![RVTconverter 命令行运行](docs/images/cli-rvt-ifc.png) | ![深色主题的 Data Viewer](docs/images/data-viewer-dark.png) |
 | **命令行** — `RVTconverter.exe` 写出 GLB、IFC4、元素表和报告，并打印状态摘要。 | **深色主题** — 深色主题下的 Data Viewer，右上角为界面语言切换。 |
 
 <a id="quick-start"></a>
 ## 快速开始
 
-1. 打开 [2.0.2 版本](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases/tag/v2.0.2)（RVT Converter、RVT to IFC）或 [Releases 页面](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases)（其他软件包），
+1. 打开 [latest 版本](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases/latest)（RVT Converter、RVT to IFC）或 [Releases 页面](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases)（其他软件包），
    下载所需的软件包 — `*-Setup.exe`（按用户安装的安装程序）或 `*-portable.zip`。
 2. 使用同一版本中的 `SHA256SUMS.txt` 校验下载文件：
    ```powershell
@@ -294,7 +296,6 @@ Excel 和 Power BI 是 Microsoft Corporation 的商标，此处仅用于说明�
 | `AI_AGENTS_INSTRUCTIONS/` | 面向 AI 编码智能体的说明 |
 | `DDC_WINDOWS_Converters/` | 便携版 Windows 转换器（RVT、RVT-to-IFC、IFC to Excel、CAD Drawing to Excel、Data Viewer）、许可证文本以及 Excel → Revit 插件文档；安装程序位于 Releases 页面 |
 | `DDC_LINUX_Converters/` | CWICR 数据包、Qdrant 打包和遥测仪表板 |
-| `Sample_Projects/` | 开放的 IFC 示例文件 |
 
 <a id="licensing"></a>
 ## 许可

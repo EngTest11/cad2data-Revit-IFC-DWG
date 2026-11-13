@@ -1,3 +1,5 @@
+> **Nicht mit Autodesk verbunden.** Autodesk, AutoCAD, DWG und Revit sind Marken von Autodesk, Inc.; IFC und buildingSMART sind Marken von buildingSMART International Ltd.; Microsoft, Excel und Power BI sind Marken der Microsoft Corporation. DataDrivenConstruction ist unabhängige Software und steht in keiner Verbindung zu diesen Unternehmen, wird von ihnen weder unterstützt noch zertifiziert. RVT, RFA, DWG, DXF und IFC sind Dateiformat-Namen, die nur angeben, welche Dateien gelesen werden. Siehe [TRADEMARK.md](TRADEMARK.md).
+
 <p align="center">
   <a href="README.md">English</a> •
   <a href="README.de.md">Deutsch</a> •
@@ -37,7 +39,7 @@
 
 DDC Converters 2.0 ist der Release der gesamten Produktlinie vom Oktober 2026: RVT Converter 2.0, RVT to IFC 2.0,
 IFC to Excel 2.0, CAD Drawing to Excel 2.0, Data Viewer 2.0 und Excel Add-in 2.0.
-Der aktuelle Build von RVT Converter und RVT to IFC ist [2.0.2](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases/tag/v2.0.2).
+Der aktuelle Build von RVT Converter und RVT to IFC ist [latest](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases/latest).
 
 - **Ein Werkzeug pro Formatfamilie.** `.rvt` / `.rfa` nach GLB, glTF, OBJ, IFC4 und JSONL- / CSV- / SQLite-Tabellen;
   `.ifc` / `.ifczip` nach Excel, JSONL und SQLite; `.dwg` nach Excel, CSV, JSONL, DXF und SVG.
@@ -89,21 +91,21 @@ noch eine Python-Installation. Kommandozeilen-Builds für Linux und macOS finden
 ## Screenshots
 
 Alle folgenden Screenshots stammen aus echten Läufen der Pakete des aktuellen Releases. Sie verwenden offene
-Revit-Beispielmodelle (MIT-Lizenz), das synthetische Beispielgebäude des Viewers und das offene IFC-Beispiel in [`Sample_Projects/`](Sample_Projects/).
+Revit-Beispielmodelle (MIT-Lizenz) und das synthetische Beispielgebäude des Viewers.
 
 | | |
 |---|---|
-| ![RVT Converter 2.0.2: abgeschlossene Konvertierung von zwei Revit-Modellen](docs/images/rvt-converter-done.png) | ![RVT to IFC 2.0.2: Optionsbereich für IFC](docs/images/rvt-to-ifc-options.png) |
+| ![RVT Converter 2.0.12: abgeschlossene Konvertierung von zwei Revit-Modellen](docs/images/2.0.12/rvt-converter-done.png) | ![RVT to IFC 2.0.12: Optionsbereich für IFC](docs/images/2.0.12/rvt-to-ifc-options.png) |
 | **DDC RVT Converter** — zwei Revit-Modelle konvertiert; der Ergebnisordner wird pro Datei aufgelistet. | **DDC RVT to IFC** — Längeneinheit, Koordinatenursprung und weitere IFC-Einstellungen unter *More options*. |
-| ![Data Viewer: 3D-Auswahl verknüpft mit Tabellenzeilen](docs/images/data-viewer-3d-selection.png) | ![Ausgabe von IFC to Excel im Data Viewer, gruppiert nach IFC-Klasse](docs/images/ifc-to-excel-table.png) |
-| **DDC Data Viewer** — ein Filter auf *Structural Columns* hebt die verknüpften Elemente in 3D hervor; der Summenbereich addiert Fläche, Volumen und Länge. | **DDC IFC to Excel** — `drawing.xlsx` des offenen IFC-Beispiels Duplex, gruppiert nach IFC-Klasse (333 Objekte, 23 Klassen). |
+| ![Data Viewer: 3D-Auswahl verknüpft mit Tabellenzeilen](docs/images/data-viewer-3d-selection.png) | ![Data Viewer: Beispielgebäude gruppiert nach Kategorie und Ebene](docs/images/data-viewer-3d-grouped.png) |
+| **DDC Data Viewer** — ein Filter auf *Structural Columns* hebt die verknüpften Elemente in 3D hervor; der Summenbereich addiert Fläche, Volumen und Länge. | **DDC Data Viewer** — das synthetische Beispielgebäude, gruppiert nach Kategorie und Ebene, mit Spaltensummen und verknüpfter 3D-Ansicht. |
 | ![Lauf von RVTconverter auf der Kommandozeile](docs/images/cli-rvt-ifc.png) | ![Data Viewer im dunklen Design](docs/images/data-viewer-dark.png) |
 | **Kommandozeile** — `RVTconverter.exe` schreibt GLB, IFC4, die Elementtabelle und Berichte und gibt eine Statuszusammenfassung aus. | **Dunkles Design** — der Data Viewer im dunklen Design, mit dem Umschalter für die Oberflächensprache oben rechts. |
 
 <a id="quick-start"></a>
 ## Schnellstart
 
-1. Öffnen Sie den [Release 2.0.2](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases/tag/v2.0.2) (RVT Converter, RVT to IFC) oder die [Releases-Seite](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases) (übrige Pakete)
+1. Öffnen Sie den [Release latest](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases/latest) (RVT Converter, RVT to IFC) oder die [Releases-Seite](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases) (übrige Pakete)
    und laden Sie das gewünschte Paket herunter — eine `*-Setup.exe` (Installer pro Benutzer) oder ein `*-portable.zip`.
 2. Prüfen Sie den Download anhand von `SHA256SUMS.txt` aus demselben Release:
    ```powershell
@@ -295,7 +297,6 @@ vertraulichen Modelle an.
 | `AI_AGENTS_INSTRUCTIONS/` | Anweisungen für KI-Coding-Agenten |
 | `DDC_WINDOWS_Converters/` | portable Windows-Konverter (RVT, RVT-to-IFC, IFC to Excel, CAD Drawing to Excel, Data Viewer), Lizenztexte und die Dokumentation des Excel-→-Revit-Add-ins; Installer finden Sie auf der Releases-Seite |
 | `DDC_LINUX_Converters/` | CWICR-Datenpakete, Qdrant-Paketierung und Telemetrie-Dashboard |
-| `Sample_Projects/` | offene IFC-Beispieldateien |
 
 <a id="licensing"></a>
 ## Lizenzierung

@@ -4,8 +4,8 @@ Turn Revit models into IFC files that any BIM tool can open — without Revit an
 Made for architects, engineers, BIM coordinators and estimators who receive `.rvt` files and need to share,
 check or count what is inside them.
 
-![DDC RVT to IFC with three Revit models ready to convert](../../docs/images/rvt-to-ifc-main.png)
-*Two Revit models added to the list and ready to convert.*
+![DDC RVT to IFC 2.0.12 start window](../../docs/images/2.0.12/rvt-to-ifc-empty.png)
+*The start window: drop `.rvt` / `.rfa` files or a folder, or press Ctrl+O.*
 
 ## What you get
 
@@ -36,8 +36,8 @@ For every model, the app creates a folder next to it (for example `Family House.
 3. **Choose what to include (optional).** The default profile *Full available data* suits most cases.
    Under **More options** you can pick units, the coordinate origin, which categories to export and more.
 
-   ![More options panel with length unit and coordinate origin](../../docs/images/rvt-to-ifc-options.png)
-   *More options: length unit, coordinate origin, properties, quantities and filters.*
+   ![More options with category presets, length unit and coordinate origin](../../docs/images/2.0.12/rvt-to-ifc-options.png)
+   *More options: category presets with element counts, length unit, coordinate origin, properties, quantities and filters.*
 
 4. **Press Convert.** You can follow each file in the list; large models take a minute or two.
 
@@ -86,7 +86,7 @@ cli\RVTconverter.exe "C:\Projects\House\Family House.rvt" --ifc --ifc-units mm -
 
 **Do I need Revit or an account?** No. The app reads the files itself.
 
-**Which Revit versions are supported?** Files saved in Revit 2016 to 2027 (older files from 2013 may open, best effort).
+**Which Revit versions are supported?** Files saved with Revit 2016 to 2027 (validated on 2019 to 2027).
 
 **Is it free?** Yes, for non-commercial use: learning, research, teaching and personal projects.
 Using it in paid work, for clients, or inside a company product needs a commercial licence —

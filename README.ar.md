@@ -1,3 +1,5 @@
+> **غير تابع لشركة Autodesk.** Autodesk وAutoCAD وDWG وRevit علامات تجارية لشركة Autodesk, Inc.؛ وIFC وbuildingSMART علامتان تجاريتان لشركة buildingSMART International Ltd.؛ وMicrosoft وExcel وPower BI علامات تجارية لشركة Microsoft Corporation. DataDrivenConstruction برمجيات مستقلة وغير تابعة لهذه الشركات ولم تعتمدها أو تصادق عليها. RVT وRFA وDWG وDXF وIFC أسماء صيغ ملفات تُستخدم فقط لبيان الملفات المقروءة. انظر [TRADEMARK.md](TRADEMARK.md).
+
 <p align="center">
   <a href="README.md">English</a> •
   <a href="README.de.md">Deutsch</a> •
@@ -39,7 +41,7 @@
 
 DDC Converters 2.0 هو إصدار أكتوبر 2026 لخط المنتجات بالكامل: RVT Converter 2.0 وRVT to IFC 2.0
 وIFC to Excel 2.0 وCAD Drawing to Excel 2.0 وData Viewer 2.0 وExcel Add-in 2.0.
-البنية الحالية لـ RVT Converter وRVT to IFC هي [2.0.2](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases/tag/v2.0.2).
+البنية الحالية لـ RVT Converter وRVT to IFC هي [latest](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases/latest).
 
 - **أداة واحدة لكل عائلة صيغ.** تحويل `.rvt` / `.rfa` إلى GLB وglTF وOBJ وIFC4 وجداول JSONL / CSV / SQLite؛
   و`.ifc` / `.ifczip` إلى Excel وJSONL وSQLite؛ و`.dwg` إلى Excel وCSV وJSONL وDXF وSVG.
@@ -91,21 +93,21 @@ DDC Converters 2.0 هو إصدار أكتوبر 2026 لخط المنتجات ب�
 ## لقطات الشاشة
 
 جميع لقطات الشاشة أدناه مأخوذة من تشغيلات فعلية لحزم الإصدار الحالي. وهي تستخدم نماذج
-Revit النموذجية المفتوحة (ترخيص MIT)، والمبنى النموذجي الاصطناعي الخاص بالعارض، وعيّنة IFC المفتوحة في [`Sample_Projects/`](Sample_Projects/).
+Revit النموذجية المفتوحة (ترخيص MIT) والمبنى النموذجي الاصطناعي الخاص بالعارض.
 
 | | |
 |---|---|
-| ![RVT Converter 2.0.2: تحويل منتهٍ لنموذجين من Revit](docs/images/rvt-converter-done.png) | ![RVT to IFC 2.0.2: لوحة خيارات IFC](docs/images/rvt-to-ifc-options.png) |
+| ![RVT Converter 2.0.12: تحويل منتهٍ لنموذجين من Revit](docs/images/2.0.12/rvt-converter-done.png) | ![RVT to IFC 2.0.12: لوحة خيارات IFC](docs/images/2.0.12/rvt-to-ifc-options.png) |
 | **DDC RVT Converter** — تحويل نموذجين من Revit؛ ويُعرض مجلد النتيجة لكل ملف. | **DDC RVT to IFC** — وحدة الطول ونقطة أصل الإحداثيات وبقية إعدادات IFC ضمن *More options*. |
-| ![Data Viewer: تحديد ثلاثي الأبعاد مرتبط بصفوف الجدول](docs/images/data-viewer-3d-selection.png) | ![مخرجات IFC to Excel في Data Viewer، مجمّعة حسب فئة IFC](docs/images/ifc-to-excel-table.png) |
-| **DDC Data Viewer** — يؤدي المرشّح على *Structural Columns* إلى إبراز العناصر المرتبطة في العرض ثلاثي الأبعاد؛ وتجمع لوحة الملخص المساحة والحجم والطول. | **DDC IFC to Excel** — ملف `drawing.xlsx` لعيّنة Duplex IFC المفتوحة، مجمّعًا حسب فئة IFC (333 كائنًا و23 فئة). |
+| ![Data Viewer: تحديد ثلاثي الأبعاد مرتبط بصفوف الجدول](docs/images/data-viewer-3d-selection.png) | ![Data Viewer: المبنى النموذجي مجمّعًا حسب الفئة والمستوى](docs/images/data-viewer-3d-grouped.png) |
+| **DDC Data Viewer** — يؤدي المرشّح على *Structural Columns* إلى إبراز العناصر المرتبطة في العرض ثلاثي الأبعاد؛ وتجمع لوحة الملخص المساحة والحجم والطول. | **DDC Data Viewer** — المبنى النموذجي الاصطناعي مجمّعًا حسب الفئة والمستوى، مع مجاميع الأعمدة والعرض ثلاثي الأبعاد المرتبط. |
 | ![تشغيل RVTconverter من سطر الأوامر](docs/images/cli-rvt-ifc.png) | ![Data Viewer بالسمة الداكنة](docs/images/data-viewer-dark.png) |
 | **سطر الأوامر** — يكتب `RVTconverter.exe` ملفات GLB وIFC4 وجدول العناصر والتقارير، ويطبع ملخص الحالة. | **السمة الداكنة** — Data Viewer بالسمة الداكنة، ومفتاح تبديل لغة الواجهة في أعلى اليمين. |
 
 <a id="quick-start"></a>
 ## البدء السريع
 
-1. افتح [إصدار 2.0.2](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases/tag/v2.0.2) (RVT Converter وRVT to IFC) أو [صفحة الإصدارات](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases) (الحزم الأخرى)
+1. افتح [إصدار latest](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases/latest) (RVT Converter وRVT to IFC) أو [صفحة الإصدارات](https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG/releases) (الحزم الأخرى)
    ونزّل الحزمة التي تحتاجها — ملف `*-Setup.exe` (مثبّت لكل مستخدم) أو `*-portable.zip`.
 2. تحقق من التنزيل باستخدام `SHA256SUMS.txt` من الإصدار نفسه:
    ```powershell
@@ -298,7 +300,6 @@ Excel وPower BI علامتان تجاريتان لشركة Microsoft Corporatio
 | `AI_AGENTS_INSTRUCTIONS/` | تعليمات لوكلاء البرمجة بالذكاء الاصطناعي |
 | `DDC_WINDOWS_Converters/` | محولات Windows المحمولة (RVT وRVT-to-IFC وIFC to Excel وCAD Drawing to Excel وData Viewer) ونصوص التراخيص ووثائق إضافة Excel → Revit؛ والمثبّتات في صفحة Releases |
 | `DDC_LINUX_Converters/` | حزم بيانات CWICR وتغليف Qdrant ولوحة القياس عن بُعد |
-| `Sample_Projects/` | ملفات IFC نموذجية مفتوحة |
 
 <a id="licensing"></a>
 ## الترخيص
